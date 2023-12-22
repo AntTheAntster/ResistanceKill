@@ -1,6 +1,6 @@
 Plugin to add a level of resistance to player for each kill.
 <p>Configurable Duration.</p>
-<n>Resistance level counter reset upon death.</n>
-<n> </n>
-<n>Request on the Bukkit.org 'Plugin Requests' forums</n>
-<n>Any questions or issues, add me on Discord: AntTheAntster</n>
+<p>Resistance level counter reset upon death.</p>
+<p> </p>
+<p>Request on the Bukkit.org 'Plugin Requests' forums</p>
+<p>Any questions or issues, add me on Discord: AntTheAntster</p>

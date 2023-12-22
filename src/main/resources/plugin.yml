@@ -1,0 +1,8 @@
+main: uk.co.anttheantster.resistancekill.ResistanceKill
+name: ResistanceKill
+version: 1.0
+api-version: 1.20
+commands:
+  rkreload:
+    description: Reload Config File
+    aliases: [rkr]

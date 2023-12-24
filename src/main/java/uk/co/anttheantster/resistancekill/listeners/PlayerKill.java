@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import uk.co.anttheantster.resistancekill.ResistanceKill;
 
@@ -21,14 +22,19 @@ public class PlayerKill implements Listener {
         Player target = e.getEntity().getKiller();
 
         if (e.getEntity() == target){
-            level = 0;
+            if (level != 0){
+                level = target.getPotionEffect(PotionEffectType.DAMAGE_RESISTANCE).getAmplifier() - 1;
+                target.removePotionEffect(PotionEffectType.DAMAGE_RESISTANCE);
+                target.addPotionEffect(PotionEffectType.DAMAGE_RESISTANCE
+                        .createEffect(resistanceKill.getConfig().getInt("Duration"), level));
+            }
             return;
         }
-        level = level + 1;
+        if (level != resistanceKill.getConfig().getInt("Max Level")){
+            level = target.getPotionEffect(PotionEffectType.DAMAGE_RESISTANCE).getAmplifier() + 1;
 
-        target.addPotionEffect(PotionEffectType.DAMAGE_RESISTANCE
-                .createEffect(resistanceKill.getConfig().getInt("Duration"), level));
-
+            target.addPotionEffect(PotionEffectType.DAMAGE_RESISTANCE
+                    .createEffect(resistanceKill.getConfig().getInt("Duration"), level));
+        }
     }
-
 }

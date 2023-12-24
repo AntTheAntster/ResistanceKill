@@ -4,3 +4,6 @@
 
 # Duration of resistance (in seconds)
 Duration: 60
+
+# Max reachable level
+Max Level: 3
